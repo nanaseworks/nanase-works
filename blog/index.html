@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お役立ち情報｜nanase works — Amazon・EC商品動画撮影・編集</title>
+<meta name="description" content="Amazon・楽天向け商品動画についての実践的な情報をまとめています。審査・費用・規格など、制作現場からの一次情報をお届けします。">
+<link rel="canonical" href="https://nanase-works.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="お役立ち情報｜nanase works">
+<meta property="og:description" content="Amazon・楽天向け商品動画についての実践的な情報をまとめています。">
+<meta property="og:url" content="https://nanase-works.com/blog/">
+<meta property="og:image" content="https://nanase-works.com/ogp.jpg">
+<meta property="og:site_name" content="nanase works">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F8F8F6;
+    --light-gray: #F0EFEC;
+    --mid-gray: #BEBBB4;
+    --dark-gray: #3A3835;
+    --black: #1A1917;
+    --accent: #2D6A4F;
+    --accent-light: #E8F2ED;
+    --accent-mid: #52B788;
+    --greige: #E4E9E5;
+    --greige-dark: #C3D0C7;
+    --greige-text: #5E6E63;
+    --greige-deep: #1F2E24;
+    --font-display: 'Zen Kaku Gothic New', sans-serif;
+    --font-number: 'DM Sans', sans-serif;
+    --font-body: 'Noto Sans JP', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--off-white);
+    color: var(--dark-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV（トップと完全同一） */
+  nav {
+    position: sticky; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 48px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .nav-logo {
+    font-family: var(--font-display); font-weight: 600; font-size: 17px;
+    letter-spacing: 0.08em; color: var(--black); text-decoration: none; margin-left: 0.5em;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; margin-left: auto; margin-right: 32px; }
+  .nav-links a {
+    font-size: 13px; color: var(--dark-gray); text-decoration: none;
+    letter-spacing: 0.04em; transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent); color: var(--white) !important;
+    padding: 10px 22px; border-radius: 4px; font-weight: 500 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap; text-decoration: none;
+  }
+  .nav-cta:hover { background: #1e4d38 !important; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .nav-hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    padding: 6px; color: var(--black); align-items: center; justify-content: center;
+  }
+  .nav-mobile-panel {
+    display: none; position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
+    background: var(--white); border-bottom: 1px solid var(--light-gray);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    flex-direction: column; padding: 8px 20px 20px;
+  }
+  .nav-mobile-panel.open { display: flex; }
+  .nav-mobile-panel a {
+    padding: 14px 4px; font-size: 14.5px; color: var(--dark-gray);
+    text-decoration: none; border-bottom: 1px solid var(--light-gray);
+  }
+  .nav-mobile-panel a:last-of-type { border-bottom: none; }
+  .nav-mobile-cta {
+    margin-top: 12px; text-align: center; background: var(--accent);
+    color: var(--white) !important; border-radius: 4px; border-bottom: none !important;
+    font-weight: 500; padding: 14px !important;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 64px 48px 48px;
+    max-width: 880px; margin: 0 auto;
+  }
+  .page-eyebrow {
+    font-family: var(--font-number); font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); font-weight: 600;
+    display: block; margin-bottom: 16px;
+  }
+  .page-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 32px; color: var(--black); line-height: 1.4;
+  }
+  .page-desc {
+    margin-top: 14px; font-size: 15px; color: var(--greige-text); line-height: 1.85;
+  }
+
+  /* ARTICLE GRID */
+  .blog-grid {
+    max-width: 880px; margin: 0 auto;
+    padding: 0 48px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .article-card {
+    background: var(--white); border-radius: 16px;
+    border: 1px solid var(--light-gray);
+    overflow: hidden; text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+  .card-thumb {
+    width: 100%; aspect-ratio: 16/9;
+    object-fit: cover; display: block;
+    background: var(--light-gray);
+  }
+  .card-body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; }
+  .card-tag {
+    font-family: var(--font-number); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px; display: block;
+  }
+  .card-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 17px; line-height: 1.55; color: var(--black);
+    margin-bottom: 10px;
+  }
+  .card-desc {
+    font-size: 13.5px; color: var(--greige-text); line-height: 1.75;
+    flex: 1;
+  }
+  .card-date {
+    margin-top: 16px; font-family: var(--font-number);
+    font-size: 12px; color: var(--mid-gray); letter-spacing: 0.04em;
+  }
+
+  /* CTA */
+  .blog-cta {
+    max-width: 880px; margin: 0 auto 80px;
+    padding: 0 48px;
+  }
+  .blog-cta-inner {
+    background: var(--greige); border: 1px solid var(--greige-dark);
+    border-radius: 20px; padding: 40px 36px; text-align: center;
+  }
+  .blog-cta-inner h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; color: var(--greige-deep); margin-bottom: 10px;
+  }
+  .blog-cta-inner p { font-size: 14px; color: var(--greige-text); margin-bottom: 22px; }
+  .btn-accent {
+    display: inline-block; background: var(--accent); color: var(--white);
+    text-decoration: none; font-family: var(--font-display); font-weight: 700;
+    padding: 14px 36px; border-radius: 999px; font-size: 15px;
+    transition: background 0.2s ease;
+  }
+  .btn-accent:hover { background: #1e4d38; }
+
+  footer {
+    text-align: center; padding: 36px 24px;
+    color: var(--mid-gray); font-size: 12.5px;
+    border-top: 1px solid var(--light-gray);
+    background: var(--white);
+  }
+  footer a { color: var(--greige-text); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .page-header { padding: 40px 20px 32px; }
+    .page-title { font-size: 26px; }
+    .blog-grid { padding: 0 20px 60px; grid-template-columns: 1fr; gap: 20px; }
+    .blog-cta { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">nanase works</a>
+  <ul class="nav-links">
+    <li><a href="/#works">実績動画</a></li>
+    <li><a href="/#testimonials">ご利用者さまの声</a></li>
+    <li><a href="/#pricing">料金</a></li>
+    <li><a href="/#flow">制作の流れ</a></li>
+    <li><a href="/#faq">よくある質問</a></li>
+    <li><a href="/blog/" class="active">お役立ち情報</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/#contact" class="nav-cta">まず相談する</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav(this)" aria-label="メニュー">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile-panel" id="nav-mobile-panel">
+  <a href="/#works" onclick="closeMobileNav()">実績動画</a>
+  <a href="/#testimonials" onclick="closeMobileNav()">ご利用者さまの声</a>
+  <a href="/#pricing" onclick="closeMobileNav()">料金</a>
+  <a href="/#flow" onclick="closeMobileNav()">制作の流れ</a>
+  <a href="/#faq" onclick="closeMobileNav()">よくある質問</a>
+  <a href="/blog/" onclick="closeMobileNav()">お役立ち情報</a>
+  <a href="/#contact" class="nav-mobile-cta" onclick="closeMobileNav()">まず相談する</a>
+</div>
+
+<div class="page-header">
+  <span class="page-eyebrow">Blog</span>
+  <h1 class="page-title">お役立ち情報</h1>
+  <p class="page-desc">Amazon・楽天向け商品動画についての実践的な情報をまとめています。<br>審査・費用・規格など、制作現場からの一次情報をお届けします。</p>
+</div>
+
+<div class="blog-grid">
+
+  <a class="article-card" href="/blog/amazon-video-shinsa/">
+    <img class="card-thumb" src="/blog/amazon-video-shinsa/hero.jpg" alt="Amazon商品動画の審査が通らない原因と対処法">
+    <div class="card-body">
+      <span class="card-tag">審査・申請</span>
+      <p class="card-title">Amazon商品動画が審査に通らない原因と対処法——"通る表現"への言い換え方</p>
+      <p class="card-desc">審査に落ちる原因5つと言い換え表を、制作700本の現場目線で解説します。</p>
+      <p class="card-date">2026.06.10</p>
+    </div>
+  </a>
+
+  <a class="article-card" href="/blog/product-video-cost/">
+    <img class="card-thumb" src="/blog/product-video-cost/hero.jpg" alt="商品動画の外注費用相場と失敗しない依頼先の選び方">
+    <div class="card-body">
+      <span class="card-tag">費用・外注</span>
+      <p class="card-title">商品動画の外注、費用相場はいくら？失敗しない依頼先の選び方まで、正直に話します</p>
+      <p class="card-desc">依頼のしかた別の現実的な相場感と、値段以上に大事な依頼先の見極め方を解説。</p>
+      <p class="card-date">2026.06.24</p>
+    </div>
+  </a>
+
+  <a class="article-card" href="/blog/amazon-video-spec/">
+    <img class="card-thumb" src="/blog/amazon-video-spec/hero.jpg" alt="Amazon・楽天 商品動画の規格・仕様まとめ">
+    <div class="card-body">
+      <span class="card-tag">規格・仕様</span>
+      <p class="card-title">Amazon・楽天 商品動画の規格・仕様まとめ——サイズ・長さ・形式を一覧で確認</p>
+      <p class="card-desc">ファイル形式・解像度・容量の上限や、見落としやすい「商品ページ用」と「広告用」の秒数の違いまで、現場目線でまとめました。</p>
+      <p class="card-date">2026.06.25</p>
+    </div>
+  </a>
+
+</div>
+
+<div class="blog-cta">
+  <div class="blog-cta-inner">
+    <h2>商品動画の制作、まずはご相談ください</h2>
+    <p>予算・内容が固まっていなくて大丈夫です。「こんな動画できる？」から始まる相談が一番多いです。</p>
+    <a href="/#contact" class="btn-accent">無料で見積り相談する</a>
+  </div>
+</div>
+
+<footer>
+  <p>© nanase works ／ <a href="/">Amazon・EC商品動画の撮影・編集</a></p>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    document.getElementById('nav-mobile-panel').classList.toggle('open');
+  }
+  function closeMobileNav() {
+    document.getElementById('nav-mobile-panel').classList.remove('open');
+  }
+</script>
+</body>
+</html>

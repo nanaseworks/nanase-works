@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon・楽天 商品動画の規格・仕様まとめ｜サイズ・長さ・形式を一覧で確認｜nanase works</title>
+<meta name="description" content="Amazon・楽天の商品ページにアップできる動画の規格・仕様を一覧でまとめました。ファイル形式・解像度・秒数・容量の上限や、商品ページ用と広告用の違いまで、制作700本の現場目線で解説します。">
+<link rel="canonical" href="https://nanase-works.com/blog/amazon-video-spec/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Amazon・楽天 商品動画の規格・仕様まとめ｜サイズ・長さ・形式を一覧で確認">
+<meta property="og:description" content="ファイル形式・解像度・秒数・容量の上限や、商品ページ用と広告用の違いまで、制作現場の目線でまとめました。">
+<meta property="og:url" content="https://nanase-works.com/blog/amazon-video-spec/">
+<meta property="og:image" content="https://nanase-works.com/blog/amazon-video-spec/hero.jpg">
+<meta property="og:site_name" content="nanase works">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nanase-works.com/blog/amazon-video-spec/hero.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Amazon・楽天 商品動画の規格・仕様まとめ｜サイズ・長さ・形式を一覧で確認",
+  "description": "Amazon・楽天の商品ページにアップできる動画の規格・仕様を一覧でまとめました。ファイル形式・解像度・秒数・容量の上限や、商品ページ用と広告用の違いまで、制作700本の現場目線で解説します。",
+  "image": "https://nanase-works.com/blog/amazon-video-spec/hero.jpg",
+  "author": {"@type": "Organization", "name": "nanase works", "url": "https://nanase-works.com/"},
+  "publisher": {"@type": "Organization", "name": "nanase works", "url": "https://nanase-works.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://nanase-works.com/blog/amazon-video-spec/"},
+  "datePublished": "2026-06-25",
+  "dateModified": "2026-06-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nanase-works.com/"},
+    {"@type": "ListItem", "position": 2, "name": "お役立ち情報", "item": "https://nanase-works.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Amazon・楽天 商品動画の規格・仕様まとめ"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Amazon商品動画のファイル形式は何が使えますか？","acceptedAnswer":{"@type":"Answer","text":"MP4とMOVが使えます。コーデックはH.264が安定しています。"}},
+    {"@type":"Question","name":"Amazon商品動画の最大ファイルサイズは？","acceptedAnswer":{"@type":"Answer","text":"5GB未満が条件です。実際の制作では、品質と扱いやすさのバランスから数百MB程度に収めることが多いです。"}},
+    {"@type":"Question","name":"Amazon商品動画の秒数に上限はありますか？","acceptedAnswer":{"@type":"Answer","text":"商品ページ（カタログ）にアップする動画は、公式に明確な秒数上限が示されていません。一方、スポンサーブランド動画などの広告用は最大45秒（推奨は15〜30秒）です。"}},
+    {"@type":"Question","name":"動画は何秒くらいだと最後まで見てもらえますか？","acceptedAnswer":{"@type":"Answer","text":"HubSpotの調査では、30秒以内に収めれば約80%の人が最後まで視聴するとされています。冒頭の数秒で離脱が決まるため、要点を前半に寄せる構成が効果的です。"}},
+    {"@type":"Question","name":"Amazon商品動画に縦型（9:16）は使えますか？","acceptedAnswer":{"@type":"Answer","text":"商品ページ動画は縦横比に明確な制限はなく、16:9（横型）が標準です。16:9だと縮小表示になるため、あえて1:1でアップする運用もあります。縦型は商品ページには向きません。"}},
+    {"@type":"Question","name":"楽天の商品動画の容量制限は？","acceptedAnswer":{"@type":"Answer","text":"楽天RMSのR-Cabinetにアップできる動画は1ファイル200MBまでです。Amazonの5GBと比べてかなり小さいため、容量の調整が必要です。"}}
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F8F8F6;
+    --light-gray: #F0EFEC;
+    --mid-gray: #BEBBB4;
+    --dark-gray: #3A3835;
+    --black: #1A1917;
+    --accent: #2D6A4F;
+    --accent-light: #E8F2ED;
+    --accent-mid: #52B788;
+    --greige: #E4E9E5;
+    --greige-dark: #C3D0C7;
+    --greige-text: #5E6E63;
+    --greige-deep: #1F2E24;
+    --font-display: 'Zen Kaku Gothic New', sans-serif;
+    --font-number: 'DM Sans', sans-serif;
+    --font-body: 'Noto Sans JP', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font-body); color: var(--dark-gray);
+    background: var(--off-white); line-height: 1.9;
+    font-weight: 400; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(248,248,246,0.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .site-header .inner {
+    max-width: 820px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .site-header .logo {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 19px; color: var(--black); text-decoration: none; letter-spacing: 0.01em;
+  }
+  .site-header .back {
+    margin-left: auto; font-size: 13px; color: var(--greige-text);
+    text-decoration: none; font-weight: 500;
+  }
+  .site-header .back:hover { color: var(--accent); }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .article-head { padding: 56px 0 36px; }
+  .hero-img {
+    width: 100%; height: auto; border-radius: 18px; display: block;
+    margin: 8px 0 0; border: 1px solid var(--light-gray);
+  }
+  .eyebrow {
+    display: inline-block; font-family: var(--font-number);
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 31px; line-height: 1.5; color: var(--black);
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    margin-top: 22px; font-size: 13px; color: var(--mid-gray);
+    font-family: var(--font-number); letter-spacing: 0.02em;
+  }
+  .lead {
+    font-size: 16.5px; color: var(--dark-gray); margin: 32px 0 8px;
+    padding: 24px 26px; background: var(--accent-light);
+    border-radius: 14px; line-height: 1.95;
+  }
+
+  article { padding-bottom: 40px; }
+  article h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 23px; line-height: 1.55; color: var(--black);
+    margin: 56px 0 8px; padding-top: 22px;
+    border-top: 1px solid var(--greige-dark);
+  }
+  article h3 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 18px; color: var(--greige-deep); margin: 34px 0 6px;
+  }
+  article p { margin: 18px 0; font-size: 15.5px; }
+  article strong { font-weight: 700; color: var(--black); }
+  article ul, article ol { margin: 18px 0 18px 1.2em; }
+  article li { margin: 10px 0; font-size: 15.5px; }
+
+  .table-wrap { overflow-x: auto; margin: 24px 0; -webkit-overflow-scrolling: touch; }
+  table.spec {
+    width: 100%; border-collapse: collapse; font-size: 14.5px;
+    background: var(--white); border: 1px solid var(--greige-dark);
+    border-radius: 12px; overflow: hidden; min-width: 480px;
+  }
+  table.spec th {
+    text-align: left; padding: 13px 16px; background: var(--greige);
+    font-family: var(--font-display); font-weight: 500; font-size: 13.5px;
+    color: var(--greige-deep);
+  }
+  table.spec td { padding: 13px 16px; border-top: 1px solid var(--light-gray); vertical-align: top; }
+  table.spec td.val { font-weight: 700; color: var(--black); white-space: nowrap; }
+  table.spec td.rec { color: var(--accent); font-size: 13px; }
+  table.spec tr:last-child td { border-bottom: none; }
+
+  .note {
+    margin: 26px 0; padding: 18px 22px; border-left: 3px solid var(--accent-mid);
+    background: var(--white); border-radius: 0 12px 12px 0; font-size: 14.5px; color: var(--dark-gray);
+  }
+  .note .label { font-family: var(--font-display); font-weight: 700; color: var(--accent); font-size: 14px; display: block; margin-bottom: 4px; }
+
+  .faq details {
+    border: 1px solid var(--greige-dark); border-radius: 12px;
+    background: var(--white); margin: 12px 0; padding: 0 20px;
+  }
+  .faq summary {
+    font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
+    color: var(--greige-deep); cursor: pointer; list-style: none;
+    padding: 16px 28px 16px 0; position: relative;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+"; position: absolute; right: 0; top: 13px;
+    font-family: var(--font-number); color: var(--accent); font-size: 20px; line-height: 1;
+  }
+  .faq details[open] summary { border-bottom: 1px solid var(--light-gray); }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { margin: 14px 0 16px; font-size: 14.5px; color: var(--dark-gray); }
+
+  .cta {
+    margin: 48px 0 8px; padding: 40px 32px; border-radius: 20px;
+    background: var(--greige); border: 1px solid var(--greige-dark);
+    color: var(--greige-deep); text-align: center;
+  }
+  .cta h2 { border: none; padding: 0; margin: 0 0 12px; color: var(--greige-deep); font-size: 21px; }
+  .cta p { color: var(--greige-text); font-size: 14.5px; margin: 0 auto 24px; max-width: 460px; }
+  .cta .stat { font-family: var(--font-number); font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 22px; letter-spacing: 0.03em; }
+  .cta a.btn {
+    display: inline-block; background: var(--accent); color: var(--white);
+    text-decoration: none; font-family: var(--font-display); font-weight: 700;
+    padding: 15px 38px; border-radius: 999px; font-size: 15px;
+  }
+  .cta a.btn:hover { background: #1e4d38; }
+
+  footer.site-footer {
+    text-align: center; padding: 40px 24px; color: var(--mid-gray);
+    font-size: 12.5px; border-top: 1px solid var(--light-gray);
+    background: var(--white);
+  }
+  footer.site-footer a { color: var(--greige-text); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 25px; }
+    article h2 { font-size: 20px; }
+    .lead { font-size: 15px; padding: 20px; }
+    .article-head { padding: 36px 0 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="/" class="logo">nanase works</a>
+    <a href="/blog/" class="back">← お役立ち情報一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <span class="eyebrow">Blog ・ 規格・仕様</span>
+    <h1>Amazon・楽天 商品動画の規格・仕様まとめ<br>サイズ・長さ・形式を一覧で確認</h1>
+    <div class="meta">2026.06.25 ・ nanase works</div>
+    <img class="hero-img" src="hero.jpg" alt="Amazon・楽天の商品動画の規格・仕様まとめのイメージ" width="1264" height="843">
+  </div>
+
+  <article>
+    <p class="lead">「どんな形式で作ればいいの？」「秒数に上限はある？」——商品動画を用意するとき、最初に気になるのが規格です。この記事では、Amazon・楽天の商品ページ向け動画の仕様を一覧でまとめました。あわせて、見落としやすい「商品ページ用」と「広告用」の違いも整理しています。外注するときの仕様確認にも、そのままお使いいただけます。</p>
+
+    <h2>Amazon：まず一覧で確認</h2>
+    <p>Amazonセラーセントラルの「ビデオのアップロードと管理」から、商品ページ（サブ画像枠）に動画をアップする際の基本要件です。</p>
+
+    <div class="table-wrap">
+      <table class="spec">
+        <thead><tr><th>項目</th><th>条件・上限</th><th>現場での推奨</th></tr></thead>
+        <tbody>
+          <tr><td>ファイル形式</td><td class="val">MP4 / MOV</td><td class="rec">MP4（H.264）が最も安定</td></tr>
+          <tr><td>ファイルサイズ</td><td class="val">5GB未満</td><td class="rec">実用上は数百MB程度が扱いやすい</td></tr>
+          <tr><td>解像度</td><td class="val">480p以上を推奨</td><td class="rec">1080p（1920×1080）で制作が安心</td></tr>
+          <tr><td>アスペクト比</td><td class="val">制限なし（16:9が標準）</td><td class="rec">1:1（正方形）でアップする店舗も</td></tr>
+          <tr><td>秒数（商品ページ）</td><td class="val">明確な上限なし</td><td class="rec">前半に要点を集中させる</td></tr>
+          <tr><td>コーデック</td><td class="val">特定なし</td><td class="rec">H.264が互換性・品質のバランス◎</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="label">注意</span>
+      Amazonの公式仕様は予告なく変更されることがあります。アップロード前に<a href="https://sellercentral.amazon.co.jp/" target="_blank" rel="noopener">セラーセントラル</a>の最新のヘルプも合わせてご確認ください。
+    </div>
+
+    <h2>形式はMP4（H.264）がほぼ一択</h2>
+    <p>形式はMP4とMOVの両方が使えますが、<strong>MP4・コーデックH.264</strong>を選んでおくのが現場では無難です。ファイルサイズを抑えながら品質を保ちやすく、主要な編集ソフトからの書き出しでも設定しやすい。私自身、700本以上の納品でほぼ全てMP4/H.264を使っていますが、形式が原因のアップロードエラーに遭遇したことはほとんどありません。</p>
+    <p>MOVはMac環境では扱いやすい反面、ファイルサイズが大きくなりやすい傾向があります。わざわざMOVにする理由がなければ、MP4にしておくのが安全です。</p>
+
+    <h2>解像度は「1080pで作っておく」と安心</h2>
+    <p>公式の要件は「<strong>480p以上を推奨</strong>」と幅のある書き方ですが、実用上は<strong>1080p（1920×1080）で制作しておく</strong>のをお勧めします。理由はこの2つです。</p>
+    <ul>
+      <li><strong>再圧縮への耐性</strong>：アップロード後にプラットフォーム側で再エンコードされます。元の解像度が高いほど、圧縮後の劣化が目立ちにくくなります。</li>
+      <li><strong>流用のしやすさ</strong>：1080pで納品しておけば、あとからSNS広告や自社サイト用に使い回す際も品質に余裕があります。</li>
+    </ul>
+
+    <h2>【重要】秒数は「商品ページ用」と「広告用」で違う</h2>
+    <p>ここが一番混乱しやすいポイントです。よく「Amazonの動画は45秒まで」と言われますが、<strong>その45秒は&ldquo;広告用&rdquo;の上限</strong>で、商品ページにアップする動画とは別の話です。整理すると、こうなります。</p>
+
+    <div class="table-wrap">
+      <table class="spec">
+        <thead><tr><th>用途</th><th>秒数の上限</th><th>推奨の尺</th></tr></thead>
+        <tbody>
+          <tr><td>商品ページ（カタログのサブ画像枠）</td><td class="val">明確な上限なし</td><td class="rec">前半に要点を集中</td></tr>
+          <tr><td>広告（スポンサーブランド動画など）</td><td class="val">最大45秒</td><td class="rec">15〜30秒（公式は20秒以内を推奨）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>広告用は、長く作っても最後まで見られないことが多いため、短く凝縮するのが基本です。一方で商品ページ用は、明確な秒数の上限が公式に示されていません。だからこそ「何秒で作るか」は、作り手の方針が出るところでもあります。</p>
+
+    <h3>データで見る「短さ」の効果</h3>
+    <p>動画の長さと「最後まで見てもらえるか」には、はっきりした関係があります。HubSpotの調査によると、<strong>30秒以内に収めれば約80%の人が最後まで視聴する</strong>とされています。さらに、最初の数秒で離脱するかどうかが決まるとも言われ、<strong>冒頭の3秒を見たユーザーは最後まで見る可能性が高い</strong>というデータもあります。「冒頭で引きつけ、要点を前半に寄せる」ことが、数字の面からも裏づけられているわけです。</p>
+    <p>もう一つ、商品ページ動画ならではの注意点として、<strong>音声オフ前提</strong>で考えることが挙げられます。Facebookの調査では視聴者の約95%がミュートで見ているとされ、商品ページ動画も自動再生・無音で流れることが多いです。音がなくても伝わるよう、テロップや字幕で要点を見せる設計が欠かせません。</p>
+    <p class="meta-source" style="font-size:13px; color: var(--greige-text); margin-top:-6px;">出典：HubSpot・Google・Facebook 各社の調査より（<a href="https://www.nik-prt.co.jp/npcreation/npwp/video-scale-by-media/" target="_blank" rel="noopener">NP Lab によるまとめ</a>／<a href="https://shibuyamovie.tokyo/column/4031/" target="_blank" rel="noopener">Shibuya Movie によるまとめ</a>）。各プラットフォームでの調査のため、Amazon・楽天の商品ページに完全に一致するものではありませんが、動画一般の傾向として参考になります。</p>
+
+    <div class="note">
+      <span class="label">現場の話：私が「45秒で依頼を受けることが多い」理由</span>
+      ここまで「短いほうが見られやすい」とお伝えしてきましたが、こうしたデータを踏まえたうえで、私自身は<strong>45秒で依頼を受けて制作することが多い</strong>です。理由は2つあります。ひとつは、<strong>商品の訴求ポイントをできるだけ多く動画の中で紹介するため</strong>。もうひとつは、<strong>広告用の上限（45秒）に合わせておけば、商品ページにも広告にも同じ素材を使い回せる</strong>ためです。<br><br>ただ、長く作るからといって、だらだら見せるわけではありません。要点はできるだけ前半に置き、特に伝えたいポイントは30秒までに入れ切るよう心がけています。「尺は確保しつつ、大事なところは前半に集中させる」——この作り方なら、最後まで見られなくても伝えたいことは届きますし、後から広告に転用したくなっても作り直さずに済みます。
+    </div>
+
+    <h2>アスペクト比は16:9が標準（1:1も可）</h2>
+    <p>商品ページ動画は、縦横比に明確な制限はありません。基本は<strong>横型（16:9）</strong>ですが、16:9だと商品画像エリアでやや縮小して表示されるため、<strong>あえて1:1（正方形）でアップする店舗もあります</strong>。表示領域を大きく使いたい場合は1:1も選択肢になります。</p>
+    <p>一方、縦型（9:16）は、縦スクロールのSNSには向きますが、Amazon・楽天の商品ページに入れると左右が余って商品が小さく見えがちです。<strong>商品ページ用は横型または正方形</strong>と覚えておくのが安全です。SNS広告にも使いたい場合は、別途縦型のリサイズを用意する形が一般的です。</p>
+
+    <h2>見落としがちな落とし穴：画像が多いと動画が出ないことがある</h2>
+    <p>意外と知られていないのですが、<strong>商品詳細ページの画像点数が多い（7点以上など）と、動画が表示されない場合があります</strong>。せっかくアップしたのに表示されない、というときは、まず登録している画像の枚数を確認してみてください。画像と動画の合計枠には限りがあるため、動画を見せたい場合は画像点数とのバランスも意識しておくと安心です。</p>
+
+    <h2>楽天はAmazonと別物：200MBの壁に注意</h2>
+    <p>楽天はAmazonとかなり仕様が違います。最初に押さえておきたいのは<strong>容量制限</strong>です。</p>
+
+    <div class="table-wrap">
+      <table class="spec">
+        <thead><tr><th>項目</th><th>楽天（R-Cabinet）</th><th>参考：Amazon</th></tr></thead>
+        <tbody>
+          <tr><td>ファイル容量</td><td class="val">1ファイル200MBまで</td><td class="rec">5GB未満</td></tr>
+          <tr><td>対応形式</td><td class="val">MP4・MOV・WMV・AVI 等</td><td class="rec">MP4・MOV</td></tr>
+          <tr><td>表示サイズの目安</td><td class="val">W640×H480 程度</td><td class="rec">—</td></tr>
+          <tr><td>掲載位置</td><td class="val">フリック画像の最後尾 等</td><td class="rec">サブ画像枠</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>一番のクセは、なんといっても<strong>200MBという容量制限</strong>です。Amazonの5GBと比べると桁違いに小さく、高画質のまま長尺で作るとすぐ超えてしまいます。楽天向けは、<strong>表示サイズ（640px程度）に合わせて解像度を落とし、容量を抑えて書き出す</strong>のがポイントです。必要以上に高解像度で作っても、表示時には縮小されるので、容量だけが重くなってしまいます。</p>
+    <p>なお、設置方法はR-CabinetにアップしてHTMLソースを貼る方法のほか、楽天GOLDを使って商品説明文の好きな位置に置く方法もあります。掲載位置の自由度が変わるので、目立たせたい場合は後者が選ばれることが多いです。</p>
+
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <details>
+        <summary>Amazon商品動画のファイル形式は何が使えますか？</summary>
+        <p>MP4とMOVが使えます。コーデックはH.264が安定していておすすめです。</p>
+      </details>
+      <details>
+        <summary>「Amazonの動画は45秒まで」は本当ですか？</summary>
+        <p>その45秒は広告用（スポンサーブランド動画など）の上限です。商品ページ（カタログ）にアップする動画には、公式に明確な秒数上限は示されていません。用途で分けて考えるのがポイントです。</p>
+      </details>
+      <details>
+        <summary>動画は何秒くらいだと最後まで見てもらえますか？</summary>
+        <p>HubSpotの調査では、30秒以内に収めれば約80%の人が最後まで視聴するとされています。冒頭の数秒で離脱が決まるため、要点を前半に寄せる構成が効果的です（各プラットフォームでの調査のため、Amazon・楽天に完全一致するものではありませんが、傾向の参考になります）。</p>
+      </details>
+      <details>
+        <summary>Amazon商品動画の最大ファイルサイズは？</summary>
+        <p>5GB未満が条件です。ただし大きすぎるとアップロードに時間がかかり再圧縮も強くかかるため、実際は数百MB程度に収めると扱いやすいです。</p>
+      </details>
+      <details>
+        <summary>縦型（9:16）でも使えますか？</summary>
+        <p>商品ページ動画は縦横比に明確な制限はなく、16:9（横型）が標準です。16:9だと縮小表示になるため1:1でアップする店舗もあります。縦型は商品ページだと小さく見えるため、横型か正方形がおすすめです。</p>
+      </details>
+      <details>
+        <summary>楽天の動画の容量制限は？</summary>
+        <p>楽天RMSのR-Cabinetにアップできる動画は1ファイル200MBまでとAmazonよりかなり小さいです。表示サイズ（640px程度）に合わせて解像度を落とし、容量を抑えて書き出すのがコツです。</p>
+      </details>
+    </div>
+
+    <div class="note" style="margin-top: 40px;">
+      <span class="label">あわせて読みたい</span>
+      規格を満たしていても、表現内容で審査に落ちることがあります →
+      <a href="/blog/amazon-video-shinsa/">Amazon商品動画が審査に通らない原因とは？&ldquo;通る表現&rdquo;への言い換え方</a>
+    </div>
+
+    <div class="cta">
+      <h2>規格に合った動画、そのままお任せいただけます</h2>
+      <p>nanase worksでは、Amazon・楽天の規格に合わせた形式・解像度・尺で動画をお作りしています。商品ページにも広告にも使える形での制作も承っています。「規格が合っているか不安」という方も、お気軽にご相談ください。</p>
+      <div class="stat">制作実績700本以上 ／ ココナラ評価 5.0（206件）</div>
+      <a href="/#contact" class="btn">無料で見積り相談する</a>
+    </div>
+
+    <p style="text-align:center; margin-top:36px; font-size:14px;"><a href="/blog/">← お役立ち情報一覧に戻る</a></p>
+  </article>
+</div>
+
+<footer class="site-footer">
+  <p>© nanase works ／ <a href="/">Amazon・EC商品動画の撮影・編集</a></p>
+</footer>
+
+</body>
+</html>
