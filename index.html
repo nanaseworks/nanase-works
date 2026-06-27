@@ -463,10 +463,30 @@
     background: var(--light-gray);
   }
   .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1140px; margin: 0 auto; }
-  .option-card { background: var(--white); border-radius: 8px; padding: 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-  .option-name { font-size: 14.5px; font-weight: 500; color: var(--black); line-height: 1.65; }
+  .option-card { background: var(--white); border-radius: 8px; padding: 20px 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .option-name { font-size: 14px; font-weight: 500; color: var(--black); line-height: 1.7; }
   .option-price { font-family: var(--font-number); font-size: 15.5px; font-weight: 600; color: var(--accent); white-space: nowrap; }
   .options-note { font-size: 12.5px; color: var(--dark-gray); line-height: 1.7; max-width: 1140px; margin: 4px auto 16px; }
+  .options-group { border: 1px solid var(--accent-mid); border-radius: 12px; padding: 14px 16px; margin: 8px 0 0; }
+  .options-group-label { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; margin: 0 0 10px; }
+  .options-grid-2col { grid-template-columns: repeat(2, 1fr) !important; }
+  .options-photo-section { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto 1fr; gap: 8px 16px; max-width: 1140px; margin: 0 auto; }
+  .options-photo-spacer { grid-column: 1; grid-row: 1; }
+  .options-photo-label { grid-column: 2 / 4; grid-row: 1; margin: 0; padding: 0; }
+  .options-photo-section > .option-card { grid-row: 2; align-self: stretch; }
+  .options-photo-card-group { background: var(--accent-light) !important; }
+  .options-photo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 768px) {
+    .options-grid { grid-template-columns: 1fr; }
+    .options-grid-2col { grid-template-columns: 1fr !important; }
+    .options-photo-section { display: flex; flex-direction: column; gap: 12px; }
+    .options-photo-spacer { display: none; }
+    .options-photo-section > .option-card:not(.options-photo-card-group) { order: 1; grid-row: unset; grid-column: unset; align-self: unset; }
+    .options-photo-label { order: 2; padding: 4px 0 0; margin: 0; grid-column: unset; grid-row: unset; }
+    .options-photo-section > .options-photo-card-group:nth-child(4) { order: 3; }
+    .options-photo-section > .options-photo-card-group:nth-child(5) { order: 4; }
+    .options-photo-inner { grid-template-columns: 1fr; }
+  }
 
   /* FLOW */
   #flow { background: var(--white); }
@@ -1497,7 +1517,7 @@
       <p class="plan-desc">撮影から編集まで全部お任せ。Amazon等ECサイトにも最適</p>
       <div class="mini-spec">
         <div class="mini-spec-item"><div class="mini-spec-num">15</div><div class="mini-spec-label">最大カット</div></div>
-        <div class="mini-spec-item"><div class="mini-spec-num">45秒</div><div class="mini-spec-label">最大尺</div></div>
+        <div class="mini-spec-item"><div class="mini-spec-num">60秒</div><div class="mini-spec-label">最大尺</div></div>
         <div class="mini-spec-item"><div class="mini-spec-num">−</div><div class="mini-spec-label">縦型</div></div>
       </div>
       <ul class="plan-features">
@@ -1571,19 +1591,29 @@
   </div>
   <p class="options-note">※ 上記の撮影オプションは、動画・写真どちらの制作にも適用されます</p>
   <p class="options-category">写真に関するオプション</p>
-  <div class="options-grid">
+  <div class="options-photo-section">
+    <div class="options-photo-spacer"></div>
+    <p class="options-group-label options-photo-label">動画とは別構図、または写真のみのご依頼</p>
     <div class="option-card">
+      <p class="option-name">動画と同構図の写真制作 / 1カット</p>
+      <p class="option-price">+¥2,000</p>
+    </div>
+    <div class="option-card options-photo-card-group">
       <p class="option-name">商品写真撮影・編集（白背景・情景）/ 1枚</p>
       <p class="option-price">+¥3,000</p>
     </div>
-    <div class="option-card">
+    <div class="option-card options-photo-card-group">
       <p class="option-name">モデル入り商品写真 / 1枚</p>
       <p class="option-price">+¥4,000</p>
     </div>
   </div>
-  <p class="options-category">生成AI素材に関するオプション</p>
+  <p class="options-category">動画編集に関するオプション</p>
   <p class="options-note">※ プラン規定カット数までの生成AI動画は、追加料金なしで対応します</p>
-  <div class="options-grid">
+  <div class="options-grid options-grid-2col">
+    <div class="option-card">
+      <p class="option-name">デザイン編集（テキスト・素材配置・モーション）/ 1カット</p>
+      <p class="option-price">+¥2,000</p>
+    </div>
     <div class="option-card">
       <p class="option-name">生成AI画像 / プラン規定カット数超過分・1カット</p>
       <p class="option-price">+¥2,000</p>
@@ -1632,10 +1662,10 @@
     </div>
     <div class="flow-step">
       <svg class="flow-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M14 46 L54 46 L54 82 L14 82 Z" fill="#E8F2ED" stroke="#52B788" stroke-width="2" stroke-linejoin="round"/>
-  <path d="M14 46 L32 28 L72 28 L54 46 Z" fill="#D0E9DB" stroke="#52B788" stroke-width="2" stroke-linejoin="round"/>
-  <path d="M54 46 L72 28 L72 64 L54 82 Z" fill="#B8D9C4" stroke="#52B788" stroke-width="2" stroke-linejoin="round"/>
-  <line x1="23" y1="37" x2="63" y2="37" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M14 46 L54 46 L54 82 L14 82 Z" fill="#E8F2ED" stroke="#52B788" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M14 46 L32 28 L72 28 L54 46 Z" fill="#D0E9DB" stroke="#52B788" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M54 46 L72 28 L72 64 L54 82 Z" fill="#B8D9C4" stroke="#52B788" stroke-width="4" stroke-linejoin="round"/>
+  <line x1="23" y1="37" x2="63" y2="37" stroke="#2D6A4F" stroke-width="4" stroke-linecap="round"/>
 </svg>
       <div class="flow-dot">2</div>
       <p class="flow-step-title">商品発送</p>
@@ -1669,19 +1699,17 @@
       <p class="flow-step-text">初稿をご確認いただき修正。3回まで追加料金なし。2〜3度のやりとりで仕上げます。</p>
     </div>
     <div class="flow-step">
-      <svg class="flow-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="8" y="10" width="72" height="52" rx="6" fill="#E8F2ED" stroke="#52B788" stroke-width="2"/>
-  <rect x="8" y="10" width="72" height="13" rx="6" fill="#52B788"/>
-  <rect x="8" y="18" width="72" height="5" fill="#52B788"/>
-  <rect x="13" y="15" width="5" height="5" rx="1.5" fill="white"/>
-  <rect x="21" y="15" width="5" height="5" rx="1.5" fill="white"/>
-  <rect x="29" y="15" width="5" height="5" rx="1.5" fill="white"/>
-  <circle cx="44" cy="42" r="13" fill="white" stroke="#52B788" stroke-width="1.5"/>
-  <path d="M39 38 L50 42 L39 46 Z" fill="#2D6A4F"/>
-  <line x1="18" y1="72" x2="74" y2="72" stroke="#52B788" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="26" y1="80" x2="66" y2="80" stroke="#52B788" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="76" cy="68" r="14" fill="#2D6A4F"/>
-  <path d="M69 68 L74 73 L83 62" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="flow-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 納品：スクリーン再生＋チェック -->
+  <rect x="4" y="6" width="34" height="24" rx="3" fill="#E8F2ED" stroke="#52B788" stroke-width="2"/>
+  <rect x="4" y="6" width="34" height="7" rx="3" fill="#52B788"/>
+  <rect x="4" y="9" width="34" height="4" fill="#52B788"/>
+  <circle cx="21" cy="22" r="6" fill="white" stroke="#52B788" stroke-width="2"/>
+  <path d="M18 20 L25 22 L18 24 Z" fill="#2D6A4F"/>
+  <line x1="8" y1="38" x2="36" y2="38" stroke="#52B788" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12" y1="43" x2="30" y2="43" stroke="#52B788" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="40" cy="36" r="8" fill="#2D6A4F"/>
+  <path d="M36 36 L39 39 L44 32" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
       <div class="flow-dot">5</div>
       <p class="flow-step-title">納品・返送</p>
