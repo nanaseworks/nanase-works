@@ -905,7 +905,7 @@
 
   <div class="works-slider">
     <div class="works-grid">
-      <div class="work-card" data-cat="beauty">
+      <div class="work-card" data-featured="1" data-cat="beauty">
         <div class="work-thumb">
           <button class="yt-facade" data-id="uldhF_Q8gE0" aria-label="動画を再生"><img src="https://img.youtube.com/vi/uldhF_Q8gE0/maxresdefault.jpg" alt="美容・ボディケアの商品動画事例｜使い方が直感的に伝わる実演動画" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/uldhF_Q8gE0/mqdefault.jpg'"></button>
         </div>
@@ -995,7 +995,7 @@
           <p class="work-title">うるおい感を引き出す質感クローズアップ</p>
         </div>
       </div>
-      <div class="work-card" data-cat="lifestyle">
+      <div class="work-card" data-featured="1" data-cat="lifestyle">
         <div class="work-thumb">
           <button class="yt-facade" data-id="Qq9WBu-S21k" aria-label="動画を再生"><img src="https://img.youtube.com/vi/Qq9WBu-S21k/maxresdefault.jpg" alt="生活用品・雑貨の商品動画事例｜サイズ感と使用イメージを伝える浴室撮影" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Qq9WBu-S21k/mqdefault.jpg'"></button>
         </div>
@@ -1013,7 +1013,7 @@
           <p class="work-title">静けさをイメージさせる訴求カット</p>
         </div>
       </div>
-      <div class="work-card" data-cat="lifestyle">
+      <div class="work-card" data-featured="1" data-cat="lifestyle">
         <div class="work-thumb">
           <button class="yt-facade" data-id="Zqsr7Syli74" aria-label="動画を再生"><img src="https://img.youtube.com/vi/Zqsr7Syli74/maxresdefault.jpg" alt="生活用品・雑貨の商品動画事例｜空間になじむインテリア演出" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Zqsr7Syli74/mqdefault.jpg'"></button>
         </div>
@@ -1031,7 +1031,7 @@
           <p class="work-title">使い方と使用イメージを伝える屋外撮影</p>
         </div>
       </div>
-      <div class="work-card" data-cat="lifestyle">
+      <div class="work-card" data-featured="1" data-cat="lifestyle">
         <div class="work-thumb">
           <button class="yt-facade" data-id="d6_eQbHKgRE" aria-label="動画を再生"><img src="https://img.youtube.com/vi/d6_eQbHKgRE/maxresdefault.jpg" alt="生活用品・雑貨の商品動画事例｜調整のしやすさを見せる実演動画" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/d6_eQbHKgRE/mqdefault.jpg'"></button>
         </div>
@@ -1130,7 +1130,7 @@
           <p class="work-title">時短の便利さが伝わる比較演出</p>
         </div>
       </div>
-      <div class="work-card" data-cat="food">
+      <div class="work-card" data-featured="1" data-cat="food">
         <div class="work-thumb">
           <button class="yt-facade" data-id="0Nq4_tCIwgc" aria-label="動画を再生"><img src="https://img.youtube.com/vi/0Nq4_tCIwgc/maxresdefault.jpg" alt="食品・キッチンツールの商品動画事例｜ほぐれる身としみる出汁を魅せる映像" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/0Nq4_tCIwgc/mqdefault.jpg'"></button>
         </div>
@@ -1175,7 +1175,7 @@
           <p class="work-title">生成AIで魅せる世界観演出と使用イメージ動画</p>
         </div>
       </div>
-      <div class="work-card" data-cat="gadget">
+      <div class="work-card" data-featured="1" data-cat="gadget">
         <div class="work-thumb">
           <button class="yt-facade" data-id="-qtCcbHhDMI" aria-label="動画を再生"><img src="https://img.youtube.com/vi/-qtCcbHhDMI/maxresdefault.jpg" alt="ガジェット・家電の商品動画事例｜携帯性と風量を伝える使用シーン" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/-qtCcbHhDMI/mqdefault.jpg'"></button>
         </div>
@@ -1319,16 +1319,8 @@
           <p class="work-title">短尺でも魅力を伝える動きと効果音編集</p>
         </div>
       </div>
-      <div class="work-card" data-cat="edit-only">
-        <div class="work-thumb">
-          <button class="yt-facade" data-id="e4nNHHwWUNA" aria-label="動画を再生"><img src="https://img.youtube.com/vi/e4nNHHwWUNA/maxresdefault.jpg" alt="商品動画の編集事例｜商品資料を活かした動画化とAI演出" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/e4nNHHwWUNA/mqdefault.jpg'"></button>
-        </div>
-        <div class="work-meta">
-          <p class="work-client">編集のみ</p>
-          <p class="work-title">商品資料を活かした動画化とAI演出</p>
-        </div>
-      </div>
     </div>
+
   </div>
 
   <div id="works-m">
@@ -2203,6 +2195,12 @@
   var mLabel = document.getElementById('works-m-rest-label');
   var cards = Array.prototype.slice.call(section.querySelectorAll('.work-card'));
 
+  // ランダム表示：読み込みごとに並びを一度だけシャッフル（Fisher-Yates）
+  for (var si = cards.length - 1; si > 0; si--) {
+    var sj = Math.floor(Math.random() * (si + 1));
+    var st = cards[si]; cards[si] = cards[sj]; cards[sj] = st;
+  }
+
   function currentCat(){
     var b = section.querySelector('.filter-btn.active');
     if(!b) return 'all';
@@ -2215,6 +2213,12 @@
       if(cat==='all') return true;
       return (c.dataset.cat||'').split(/\s+/).indexOf(cat) > -1;
     });
+    // 「すべて」では注目の6本を先頭に固定（並び自体はランダムのまま）
+    if(cat==='all'){
+      var feat = matched.filter(function(c){ return c.dataset.featured==='1'; });
+      var rest6 = matched.filter(function(c){ return c.dataset.featured!=='1'; });
+      matched = feat.concat(rest6);
+    }
     var n = mq.matches ? 3 : 6;
     mMain.innerHTML=''; mRest.innerHTML='';
     matched.forEach(function(c){ c.style.display=''; c.style.opacity='1'; c.style.transform='none'; });
