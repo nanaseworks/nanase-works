@@ -409,6 +409,10 @@
   .plan-card.featured .plan-features li { color: rgba(255,255,255,0.85); border-bottom-color: rgba(255,255,255,0.12); }
   .plan-features li::before { content: '✓'; color: var(--accent-mid); font-weight: 700; flex-shrink: 0; }
   .plan-card.featured .plan-features li::before { color: #a8dfc5; }
+  .plan-features li.opt::before { content: '＋'; color: var(--mid-gray); }
+  .plan-card.featured .plan-features li.opt::before { color: rgba(255,255,255,0.55); }
+  .plan-features li.opt { color: var(--greige-text); font-size: 12.5px; }
+  .plan-card.featured .plan-features li.opt { color: rgba(255,255,255,0.72); }
 
   /* ミニ比較表（カット数・尺・縦型） */
   .mini-spec {
@@ -463,10 +467,28 @@
     background: var(--light-gray);
   }
   .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1140px; margin: 0 auto; }
-  .option-card { background: var(--white); border-radius: 8px; padding: 20px 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .option-card { background: var(--white); border: 1px solid var(--light-gray); border-radius: 8px; padding: 20px 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
   .option-name { font-size: 14px; font-weight: 500; color: var(--black); line-height: 1.7; }
   .option-price { font-family: var(--font-number); font-size: 15.5px; font-weight: 600; color: var(--accent); white-space: nowrap; }
-  .options-note { font-size: 12.5px; color: var(--dark-gray); line-height: 1.7; max-width: 1140px; margin: 4px auto 16px; }
+  .options-note { font-size: 12.5px; color: var(--dark-gray); line-height: 1.7; max-width: 1140px; margin: 4px auto 16px; text-align: left; }
+
+  .options-cat-hint { font-size: 12.5px; color: var(--greige-text); text-align: center; margin: 0 auto 22px; }
+  .option-cat { max-width: 1140px; margin: 0 auto 12px; border: 1px solid var(--light-gray); border-radius: 10px; background: var(--white); overflow: hidden; }
+  .option-cat > summary {
+    list-style: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-display); font-weight: 600; font-size: 15.5px; color: var(--black);
+    padding: 18px 24px; text-align: left;
+  }
+  .option-cat > summary::-webkit-details-marker { display: none; }
+  .option-cat > summary::after { content: "＋"; color: var(--accent); font-size: 20px; font-weight: 400; line-height: 1; margin-left: 12px; }
+  .option-cat[open] > summary::after { content: "−"; }
+  .option-cat > summary:hover { color: var(--accent); }
+  .option-cat[open] > summary { border-bottom: 1px solid var(--light-gray); }
+  .option-cat-body { padding: 22px 24px 24px; }
+  .option-cat-body .options-grid,
+  .option-cat-body .options-photo-section { margin: 0; }
+  .option-cat-body .options-note:last-child { margin-bottom: 0; }
   .options-group { border: 1px solid var(--accent-mid); border-radius: 12px; padding: 14px 16px; margin: 8px 0 0; }
   .options-group-label { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; margin: 0 0 10px; }
   .options-grid-2col { grid-template-columns: repeat(2, 1fr) !important; }
@@ -475,6 +497,7 @@
   .options-photo-label { grid-column: 2 / 4; grid-row: 1; margin: 0; padding: 0; }
   .options-photo-section > .option-card { grid-row: 2; align-self: stretch; }
   .options-photo-card-group { background: var(--accent-light) !important; }
+  .option-card-tint { background: var(--accent-light) !important; }
   .options-photo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   @media (max-width: 768px) {
     .options-grid { grid-template-columns: 1fr; }
@@ -1548,6 +1571,7 @@
         <li>生成AI素材を必要に応じて活用</li>
         <li>修正5回まで無料</li>
         <li>高品質有料BGM無料</li>
+        <li>縦型動画1本込み（目安15〜30秒）</li>
       </ul>
       <a href="#contact" class="plan-btn">このプランで相談</a>
     </div>
@@ -1564,82 +1588,128 @@
   <p class="section-eyebrow">Options</p>
   <h2 class="section-title">必要に応じて<strong>追加</strong>できます</h2>
 
-  <p class="options-category">撮影に関するオプション</p>
-  <div class="options-grid">
-    <div class="option-card">
-      <p class="option-name">屋外撮影（芝生公園・ビーチ）/ 1ヶ所</p>
-      <p class="option-price">+¥15,000</p>
+  <p class="options-cat-hint">各カテゴリを開くと料金が表示されます。</p>
+
+  <details class="option-cat">
+    <summary>撮影に関するオプション</summary>
+    <div class="option-cat-body">
+      <div class="options-grid">
+        <div class="option-card">
+          <p class="option-name">屋外撮影（芝生公園・ビーチ）/ 1ヶ所</p>
+          <p class="option-price">+¥15,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">車を用いた撮影</p>
+          <p class="option-price">+¥15,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">犬を用いた撮影 / 1匹</p>
+          <p class="option-price">+¥15,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">男性モデル（30代・顔出しなし）/ 1本</p>
+          <p class="option-price">+¥15,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">食材調達・調理を伴う撮影（2品まで）</p>
+          <p class="option-price">+¥15,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">大型商品の搬送・組み立て・分解 / 1点</p>
+          <p class="option-price">+¥5,000〜¥10,000</p>
+        </div>
+      </div>
+      <p class="options-note">※ 上記の撮影オプションは、動画・写真どちらの制作にも適用されます</p>
     </div>
-    <div class="option-card">
-      <p class="option-name">車を用いた撮影</p>
-      <p class="option-price">+¥15,000</p>
+  </details>
+
+  <details class="option-cat">
+    <summary>写真に関するオプション</summary>
+    <div class="option-cat-body">
+      <div class="options-photo-section">
+        <div class="options-photo-spacer"></div>
+        <p class="options-group-label options-photo-label">動画とは別構図、または写真のみのご依頼</p>
+        <div class="option-card">
+          <p class="option-name">動画と同構図の写真制作 / 1カット</p>
+          <p class="option-price">+¥2,000</p>
+        </div>
+        <div class="option-card options-photo-card-group">
+          <p class="option-name">商品写真撮影・編集（白背景・情景）/ 1枚</p>
+          <p class="option-price">+¥3,000</p>
+        </div>
+        <div class="option-card options-photo-card-group">
+          <p class="option-name">モデル入り商品写真 / 1枚</p>
+          <p class="option-price">+¥4,000</p>
+        </div>
+      </div>
     </div>
-    <div class="option-card">
-      <p class="option-name">犬を用いた撮影 / 1匹</p>
-      <p class="option-price">+¥15,000</p>
+  </details>
+
+  <details class="option-cat">
+    <summary>動画編集に関するオプション</summary>
+    <div class="option-cat-body">
+      <p class="options-note">※ プラン規定カット数までの生成AI動画は、追加料金なしで対応します</p>
+      <div class="options-grid options-grid-2col">
+        <div class="option-card">
+          <p class="option-name">デザイン編集（テキスト・素材配置・モーション）/ 1カット</p>
+          <p class="option-price">+¥2,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">生成AI画像 / プラン規定カット数超過分・1カット</p>
+          <p class="option-price">+¥2,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">生成AI動画 / プラン規定カット数超過分・1カット</p>
+          <p class="option-price">+¥3,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name" style="text-align:left;">別尺版の追加制作（15秒版・30秒版など）/ 1本<br><span style="font-size:0.85em; color:var(--greige-text); font-weight:400;">同じ撮影素材を使い、構成・テキスト・演出を大きく変えない範囲</span></p>
+          <p class="option-price">+¥5,000</p>
+        </div>
+      </div>
+
+      <p class="options-group-label" style="text-align:left; margin-top:24px;">Light・Standardプランで追加できる縦型オプション</p>
+      <div class="options-grid options-grid-2col">
+        <div class="option-card option-card-tint">
+          <p class="option-name">縦型編集（横型素材を活用）/ 1本</p>
+          <p class="option-price">+¥5,000</p>
+        </div>
+      </div>
+
+      <p class="options-group-label" style="text-align:left; margin-top:18px;">Premiumプランで追加できる縦型オプション</p>
+      <div class="options-grid options-grid-2col">
+        <div class="option-card option-card-tint">
+          <p class="option-name">縦型動画の追加制作（同素材・同テイスト）/ 1本</p>
+          <p class="option-price">+¥5,000</p>
+        </div>
+        <div class="option-card option-card-tint">
+          <p class="option-name">縦型動画の構成変更・別パターン制作</p>
+          <p class="option-price">+¥10,000〜</p>
+        </div>
+      </div>
+      <p class="options-note">※ 別構成で見せ方を変える場合や、追加撮影が必要な場合は別途お見積りとなります</p>
     </div>
-    <div class="option-card">
-      <p class="option-name">男性モデル（30代・顔出しなし）/ 1本</p>
-      <p class="option-price">+¥15,000</p>
+  </details>
+
+  <details class="option-cat">
+    <summary>納品・その他のオプション</summary>
+    <div class="option-cat-body">
+      <div class="options-grid">
+        <div class="option-card">
+          <p class="option-name">制作実績の非公開対応 / 1本</p>
+          <p class="option-price">+¥10,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">編集プロジェクト一式納品 / 1本</p>
+          <p class="option-price">+¥20,000</p>
+        </div>
+        <div class="option-card">
+          <p class="option-name">お急ぎ納品（約10日後に初稿）</p>
+          <p class="option-price">+¥20,000</p>
+        </div>
+      </div>
     </div>
-    <div class="option-card">
-      <p class="option-name">食材調達・調理を伴う撮影（2品まで）</p>
-      <p class="option-price">+¥15,000</p>
-    </div>
-    <div class="option-card">
-      <p class="option-name">大型商品の搬送・組み立て・分解 / 1点</p>
-      <p class="option-price">+¥5,000〜¥10,000</p>
-    </div>
-  </div>
-  <p class="options-note">※ 上記の撮影オプションは、動画・写真どちらの制作にも適用されます</p>
-  <p class="options-category">写真に関するオプション</p>
-  <div class="options-photo-section">
-    <div class="options-photo-spacer"></div>
-    <p class="options-group-label options-photo-label">動画とは別構図、または写真のみのご依頼</p>
-    <div class="option-card">
-      <p class="option-name">動画と同構図の写真制作 / 1カット</p>
-      <p class="option-price">+¥2,000</p>
-    </div>
-    <div class="option-card options-photo-card-group">
-      <p class="option-name">商品写真撮影・編集（白背景・情景）/ 1枚</p>
-      <p class="option-price">+¥3,000</p>
-    </div>
-    <div class="option-card options-photo-card-group">
-      <p class="option-name">モデル入り商品写真 / 1枚</p>
-      <p class="option-price">+¥4,000</p>
-    </div>
-  </div>
-  <p class="options-category">動画編集に関するオプション</p>
-  <p class="options-note">※ プラン規定カット数までの生成AI動画は、追加料金なしで対応します</p>
-  <div class="options-grid options-grid-2col">
-    <div class="option-card">
-      <p class="option-name">デザイン編集（テキスト・素材配置・モーション）/ 1カット</p>
-      <p class="option-price">+¥2,000</p>
-    </div>
-    <div class="option-card">
-      <p class="option-name">生成AI画像 / プラン規定カット数超過分・1カット</p>
-      <p class="option-price">+¥2,000</p>
-    </div>
-    <div class="option-card">
-      <p class="option-name">生成AI動画 / プラン規定カット数超過分・1カット</p>
-      <p class="option-price">+¥3,000</p>
-    </div>
-  </div>
-  <p class="options-category">納品・その他のオプション</p>
-  <div class="options-grid">
-    <div class="option-card">
-      <p class="option-name">制作実績の非公開対応 / 1本</p>
-      <p class="option-price">+¥10,000</p>
-    </div>
-    <div class="option-card">
-      <p class="option-name">編集プロジェクト一式納品 / 1本</p>
-      <p class="option-price">+¥20,000</p>
-    </div>
-    <div class="option-card">
-      <p class="option-name">お急ぎ納品（約10日後に初稿）</p>
-      <p class="option-price">+¥20,000</p>
-    </div>
-  </div>
+  </details>
 </section>
 
 <!-- FLOW -->
