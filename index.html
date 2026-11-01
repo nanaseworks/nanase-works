@@ -727,6 +727,63 @@
     footer { flex-direction: column; gap: 16px; text-align: center; }
   }
   @media (prefers-reduced-motion: reduce) { .fade-up { animation: none; opacity: 1; } }
+
+  /* RANKING */
+  #ranking { padding: 80px 0; overflow: hidden; }
+  .ranking-head { padding: 0 48px; }
+  .ranking-ticker {
+    margin-top: 40px; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+  }
+  .ranking-track {
+    display: flex; gap: 16px; padding-right: 16px; width: max-content;
+    animation: rankingScroll 50s linear infinite;
+  }
+  .ranking-ticker:hover .ranking-track,
+  .ranking-ticker:focus-within .ranking-track { animation-play-state: paused; }
+  @keyframes rankingScroll { to { transform: translateX(-50%); } }
+  .ranking-ticker:has(iframe) .ranking-track { animation-play-state: paused; }
+  .ranking-card {
+    flex: 0 0 260px; box-sizing: border-box; text-align: left;
+    display: flex; flex-direction: column; overflow: hidden;
+    background: var(--off-white); border: 1px solid var(--light-gray);
+    border-radius: 8px;
+  }
+  .ranking-body { display: flex; flex-direction: column; gap: 10px; padding: 20px 22px 24px; }
+  .ranking-visual {
+    position: relative; width: 100%; padding-top: 56.25%; background: var(--greige);
+  }
+  .ranking-visual span {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-number); font-size: 40px; font-weight: 300; color: var(--greige-deep); letter-spacing: -0.02em;
+  }
+  .ranking-visual.is-top { background: var(--accent-light); }
+  .ranking-visual.is-top span { color: var(--accent); }
+  .ranking-badge {
+    align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 3px 12px; border-radius: 999px;
+    background: var(--greige); color: var(--greige-deep);
+  }
+  .ranking-badge.is-top { background: var(--accent); color: var(--white); }
+  .ranking-genre { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--black); line-height: 1.5; }
+  .ranking-note { font-size: 13px; color: var(--greige-text); line-height: 1.6; }
+  .ranking-footnote { font-size: 12px; color: var(--greige-text); margin-top: 24px; padding: 0 48px; }
+  .ranking-br { display: none; }
+  @media (max-width: 768px) {
+    #ranking { padding: 56px 0; }
+    .ranking-head, .ranking-footnote { padding: 0 20px; }
+    .ranking-br { display: inline; }
+    .ranking-ticker { overflow-x: auto; scrollbar-width: none; -webkit-mask-image: none; mask-image: none; padding-left: 20px; }
+    .ranking-ticker::-webkit-scrollbar { display: none; }
+    .ranking-card { flex-basis: 220px; }
+    .ranking-body { padding: 16px 18px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ranking-track { animation: none; }
+    .ranking-ticker { overflow-x: auto; }
+    .ranking-dup { display: none; }
+  }
 </style>
 <style>
 @media (max-width: 768px) {
@@ -887,6 +944,38 @@
     </div>
   </div>
 </div>
+
+<!-- RANKING -->
+<section id="ranking">
+  <div class="ranking-head">
+    <p class="section-eyebrow">Ranking</p>
+    <h2 class="section-title">Amazonカテゴリ<strong>1位</strong>の<br class="ranking-br">商品も、多数制作</h2>
+  </div>
+  <div class="ranking-ticker" tabindex="0" aria-label="Amazonランキング実績（横にスクロールできます）">
+    <div class="ranking-track">
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="DHpy9GQeMxQ" aria-label="防災用 簡易トイレの動画を再生"><img src="https://img.youtube.com/vi/DHpy9GQeMxQ/mqdefault.jpg" alt="防災用 簡易トイレの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge is-top">カテゴリ1位</span><p class="ranking-genre">防災用 簡易トイレ</p><p class="ranking-note">レビュー3,000件超</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="dxd03kqX3Tk" aria-label="卓上メイクミラーの動画を再生"><img src="https://img.youtube.com/vi/dxd03kqX3Tk/mqdefault.jpg" alt="卓上メイクミラーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge is-top">カテゴリ1位</span><p class="ranking-genre">卓上メイクミラー</p><p class="ranking-note">レビュー1,500件超・★4.4</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="zbksi4mSeoE" aria-label="折りたたみペットサークルの動画を再生"><img src="https://img.youtube.com/vi/zbksi4mSeoE/mqdefault.jpg" alt="折りたたみペットサークルの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge is-top">カテゴリ1位</span><p class="ranking-genre">折りたたみペットサークル</p><p class="ranking-note">レビュー900件超</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="MA86O2hHbEs" aria-label="ネイルケア用ニッパーの動画を再生"><img src="https://img.youtube.com/vi/MA86O2hHbEs/mqdefault.jpg" alt="ネイルケア用ニッパーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ2位</span><p class="ranking-genre">ネイルケア用ニッパー</p><p class="ranking-note">レビュー4,000件超</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="D6Px7FiFuLo" aria-label="ソムリエナイフの動画を再生"><img src="https://img.youtube.com/vi/D6Px7FiFuLo/mqdefault.jpg" alt="ソムリエナイフの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ2位</span><p class="ranking-genre">ソムリエナイフ</p><p class="ranking-note">月400点以上売れる人気商品</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="I6usPuoOOvY" aria-label="ペッパーミルの動画を再生"><img src="https://img.youtube.com/vi/I6usPuoOOvY/mqdefault.jpg" alt="ペッパーミルの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ2位</span><p class="ranking-genre">ペッパーミル</p><p class="ranking-note">月400点以上売れる人気商品</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="Olmd8bsPcKY" aria-label="プロテインシェイカーの動画を再生"><img src="https://img.youtube.com/vi/Olmd8bsPcKY/mqdefault.jpg" alt="プロテインシェイカーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ5位</span><p class="ranking-genre">プロテインシェイカー</p><p class="ranking-note">レビュー1,000件超・★4.4</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="ZdJe6pxLU8c" aria-label="木材水分計の動画を再生"><img src="https://img.youtube.com/vi/ZdJe6pxLU8c/mqdefault.jpg" alt="木材水分計の商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ5位</span><p class="ranking-genre">木材水分計</p><p class="ranking-note">★4.4の高評価</p></div></div>
+      <div class="ranking-card"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="i6gTi57yGCo" aria-label="シャンプーディスペンサーの動画を再生"><img src="https://img.youtube.com/vi/i6gTi57yGCo/mqdefault.jpg" alt="シャンプーディスペンサーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ上位</span><p class="ranking-genre">シャンプーディスペンサー</p><p class="ranking-note">月100点以上売れる人気商品</p></div></div>
+      <!-- 途切れずに流すための複製（読み上げ対象外） -->
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="DHpy9GQeMxQ" aria-label="防災用 簡易トイレの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/DHpy9GQeMxQ/mqdefault.jpg" alt="防災用 簡易トイレの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge is-top">カテゴリ1位</span><p class="ranking-genre">防災用 簡易トイレ</p><p class="ranking-note">レビュー3,000件超</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="dxd03kqX3Tk" aria-label="卓上メイクミラーの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/dxd03kqX3Tk/mqdefault.jpg" alt="卓上メイクミラーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge is-top">カテゴリ1位</span><p class="ranking-genre">卓上メイクミラー</p><p class="ranking-note">レビュー1,500件超・★4.4</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="zbksi4mSeoE" aria-label="折りたたみペットサークルの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/zbksi4mSeoE/mqdefault.jpg" alt="折りたたみペットサークルの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge is-top">カテゴリ1位</span><p class="ranking-genre">折りたたみペットサークル</p><p class="ranking-note">レビュー900件超</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="MA86O2hHbEs" aria-label="ネイルケア用ニッパーの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/MA86O2hHbEs/mqdefault.jpg" alt="ネイルケア用ニッパーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ2位</span><p class="ranking-genre">ネイルケア用ニッパー</p><p class="ranking-note">レビュー4,000件超</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="D6Px7FiFuLo" aria-label="ソムリエナイフの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/D6Px7FiFuLo/mqdefault.jpg" alt="ソムリエナイフの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ2位</span><p class="ranking-genre">ソムリエナイフ</p><p class="ranking-note">月400点以上売れる人気商品</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="I6usPuoOOvY" aria-label="ペッパーミルの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/I6usPuoOOvY/mqdefault.jpg" alt="ペッパーミルの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ2位</span><p class="ranking-genre">ペッパーミル</p><p class="ranking-note">月400点以上売れる人気商品</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="Olmd8bsPcKY" aria-label="プロテインシェイカーの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/Olmd8bsPcKY/mqdefault.jpg" alt="プロテインシェイカーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ5位</span><p class="ranking-genre">プロテインシェイカー</p><p class="ranking-note">レビュー1,000件超・★4.4</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="ZdJe6pxLU8c" aria-label="木材水分計の動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/ZdJe6pxLU8c/mqdefault.jpg" alt="木材水分計の商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ5位</span><p class="ranking-genre">木材水分計</p><p class="ranking-note">★4.4の高評価</p></div></div>
+      <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="i6gTi57yGCo" aria-label="シャンプーディスペンサーの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/i6gTi57yGCo/mqdefault.jpg" alt="シャンプーディスペンサーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ上位</span><p class="ranking-genre">シャンプーディスペンサー</p><p class="ranking-note">月100点以上売れる人気商品</p></div></div>
+    </div>
+  </div>
+  <p class="ranking-footnote">※ 2026年11月時点のAmazonランキング・レビュー数です。ランキングは日々変動します。</p>
+</section>
 
 <!-- WORKS -->
 <section id="works">
@@ -1129,15 +1218,6 @@
         <div class="work-meta">
           <p class="work-client">食品・キッチンツール</p>
           <p class="work-title">拭き取りの心地よさを見せる実演</p>
-        </div>
-      </div>
-      <div class="work-card" data-cat="food">
-        <div class="work-thumb">
-          <button class="yt-facade" data-id="ZZpzylzODFg" aria-label="動画を再生"><img src="https://img.youtube.com/vi/ZZpzylzODFg/maxresdefault.jpg" alt="食品・キッチンツールの商品動画事例｜時短の便利さが伝わる比較演出" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZZpzylzODFg/mqdefault.jpg'"></button>
-        </div>
-        <div class="work-meta">
-          <p class="work-client">食品・キッチンツール</p>
-          <p class="work-title">時短の便利さが伝わる比較演出</p>
         </div>
       </div>
       <div class="work-card" data-featured="1" data-cat="food">
