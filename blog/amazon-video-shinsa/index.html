@@ -215,6 +215,20 @@
     .lead { font-size: 15px; padding: 20px; }
     .article-head { padding: 36px 0 28px; }
   }
+  .related { list-style: none; margin: 18px 0; }
+  .related li { margin: 0 0 10px; }
+  .related a {
+    display: block; padding: 14px 18px; background: var(--white);
+    border: 1px solid var(--greige-dark); border-radius: 12px;
+    text-decoration: none; font-family: var(--font-display); font-weight: 500;
+    color: var(--greige-deep); font-size: 15px; line-height: 1.6;
+  }
+  .related a:hover { border-color: var(--accent-mid); color: var(--accent); }
+  .genre-nav { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; padding:0; list-style:none; }
+  .genre-nav li { margin:0; }
+  .genre-nav a { display:inline-block; padding:8px 16px; border:1px solid var(--greige-dark); border-radius:999px;
+    background:var(--white); text-decoration:none; font-size:14px; color:var(--greige-deep); }
+  .genre-nav a:hover { border-color:var(--accent); color:var(--accent); }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJZRQ57ZXD"></script>
@@ -321,6 +335,23 @@
     </div>
 
     <p style="text-align:center; margin-top:36px; font-size:14px;"><a href="/#works">→ これまでの実績動画を見る</a></p>
+
+    <h2>ジャンル別の制作実績を見る</h2>
+    <ul class="genre-nav">
+      <li><a href="/works/beauty/">美容・コスメ・ボディケア</a></li>
+      <li><a href="/works/food/">食品・キッチンツール</a></li>
+      <li><a href="/works/lifestyle/">生活用品・雑貨・家具</a></li>
+      <li><a href="/works/gadget/">ガジェット・家電</a></li>
+      <li><a href="/works/pet/">ペット用品</a></li>
+      <li><a href="/works/edit-only/">編集のみのご依頼</a></li>
+    </ul>
+
+    <h2>あわせて読みたい</h2>
+    <ul class="related">
+      <li><a href="/blog/amazon-video-spec/">Amazon・楽天 商品動画の規格・仕様まとめ</a></li>
+      <li><a href="/blog/product-video-structure/">45秒の商品動画、構成の作り方（構成例つき）</a></li>
+      <li><a href="/blog/product-video-cost/">商品動画の外注、費用相場はいくら？失敗しない依頼先の選び方</a></li>
+    </ul>
   </article>
 </div>
 
