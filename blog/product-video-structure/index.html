@@ -312,6 +312,11 @@
     table.swap { font-size: 13.5px; }
     table.swap th, table.swap td { padding: 11px 12px; }
   }
+  .genre-nav { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; padding:0; list-style:none; }
+  .genre-nav li { margin:0; }
+  .genre-nav a { display:inline-block; padding:8px 16px; border:1px solid var(--greige-dark); border-radius:999px;
+    background:var(--white); text-decoration:none; font-size:14px; color:var(--greige-deep); }
+  .genre-nav a:hover { border-color:var(--accent); color:var(--accent); }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJZRQ57ZXD"></script>
@@ -439,6 +444,16 @@
       <a class="btn" href="/#contact">無料で見積り相談する</a>
     </div>
     <p><a href="/#works">→ これまでの実績動画を見る</a></p>
+
+    <h2>ジャンル別の制作実績を見る</h2>
+    <ul class="genre-nav">
+      <li><a href="/works/beauty/">美容・コスメ・ボディケア</a></li>
+      <li><a href="/works/food/">食品・キッチンツール</a></li>
+      <li><a href="/works/lifestyle/">生活用品・雑貨・家具</a></li>
+      <li><a href="/works/gadget/">ガジェット・家電</a></li>
+      <li><a href="/works/pet/">ペット用品</a></li>
+      <li><a href="/works/edit-only/">編集のみのご依頼</a></li>
+    </ul>
 
     <h2>あわせて読みたい</h2>
     <ul class="related">
