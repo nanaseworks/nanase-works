@@ -2418,5 +2418,38 @@ document.addEventListener('click', function(e){
   currentPlaying = { iframe: ifr, facade: f };
 });
 </script>
+<script>
+// ===== お問い合わせの計測（GA4） =====
+// フォーム送信：generate_lead イベントを送ってから Formspree へ送信する
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var sent = false;
+  form.addEventListener('submit', function (e) {
+    if (sent || typeof gtag !== 'function') return; // GAが読めない時はそのまま送信
+    e.preventDefault();
+    sent = true;
+    var done = false;
+    function go() { if (done) return; done = true; form.submit(); }
+    gtag('event', 'generate_lead', {
+      method: 'form',
+      transport_type: 'beacon',
+      event_callback: go
+    });
+    setTimeout(go, 1000); // GAが応答しなくても1秒後には必ず送信
+  });
+})();
+// Chatworkボタンのクリック：chatwork_click イベント
+(function () {
+  var links = document.querySelectorAll('a[href*="chatwork.com"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'chatwork_click', { method: 'chatwork', transport_type: 'beacon' });
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>
