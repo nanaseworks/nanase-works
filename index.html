@@ -393,6 +393,9 @@
   .author-role { font-size: 12px; color: var(--mid-gray); font-weight: 300; }
   .rating-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--greige-deep); color: var(--white); padding: 6px 16px; border-radius: 100px; font-size: 12px; font-family: var(--font-number); font-weight: 500; margin-bottom: 32px; }
   .rating-badge span { color: #E8B85C; }
+  .rating-link { display: inline-block; margin-left: 12px; font-size: 12px; color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+  .rating-link:hover { opacity: .75; }
+  @media (max-width: 768px) { .rating-link { display: table; margin: -16px auto 28px; } }
 
   /* PRICING */
   #pricing { background: var(--white); }
@@ -736,18 +739,28 @@
   #ranking { padding: 80px 0; overflow: hidden; }
   .ranking-head { padding: 0 48px; }
   .ranking-ticker {
-    margin-top: 40px; overflow: hidden;
+    margin-top: 40px; overflow-x: auto; overflow-y: hidden;
+    scrollbar-width: none; cursor: grab; touch-action: pan-x pan-y; overscroll-behavior-x: contain;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 64px, #000 calc(100% - 64px), transparent);
     mask-image: linear-gradient(90deg, transparent, #000 64px, #000 calc(100% - 64px), transparent);
   }
-  .ranking-track {
-    display: flex; gap: 16px; padding-right: 16px; width: max-content;
-    animation: rankingScroll 50s linear infinite;
+  .ranking-ticker::-webkit-scrollbar { display: none; }
+  .ranking-ticker.is-dragging { cursor: grabbing; user-select: none; }
+  .ranking-ticker.is-dragging .ranking-card { pointer-events: none; }
+  .ranking-ticker img { -webkit-user-drag: none; user-select: none; }
+  .ranking-track { display: flex; gap: 16px; padding-right: 16px; width: max-content; }
+  .ranking-controls { display: flex; align-items: center; gap: 14px; max-width: 520px; margin: 24px auto 0; padding: 0 48px; }
+  .ranking-arrow {
+    flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--greige-dark); background: var(--white); color: var(--greige-deep);
+    font-size: 16px; line-height: 1; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    transition: background .2s, color .2s, border-color .2s;
   }
-  .ranking-ticker:hover .ranking-track,
-  .ranking-ticker:focus-within .ranking-track { animation-play-state: paused; }
-  @keyframes rankingScroll { to { transform: translateX(-50%); } }
-  .ranking-ticker:has(iframe) .ranking-track { animation-play-state: paused; }
+  .ranking-arrow:hover { background: var(--accent); border-color: var(--accent); color: var(--white); }
+  .ranking-range { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 999px; background: var(--greige-dark); cursor: pointer; margin: 0; }
+  .ranking-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 44px; height: 14px; border-radius: 999px; background: var(--accent); border: none; }
+  .ranking-range::-moz-range-thumb { width: 44px; height: 14px; border-radius: 999px; background: var(--accent); border: none; }
+  .ranking-range:focus-visible { outline: 2px solid var(--accent-mid); outline-offset: 6px; }
   .ranking-card {
     flex: 0 0 260px; box-sizing: border-box; text-align: left;
     display: flex; flex-direction: column; overflow: hidden;
@@ -778,14 +791,13 @@
     #ranking { padding: 56px 0; }
     .ranking-head, .ranking-footnote { padding: 0 20px; }
     .ranking-br { display: inline; }
-    .ranking-ticker { overflow-x: auto; scrollbar-width: none; -webkit-mask-image: none; mask-image: none; padding-left: 20px; }
-    .ranking-ticker::-webkit-scrollbar { display: none; }
+    .ranking-ticker { -webkit-mask-image: none; mask-image: none; padding-left: 20px; }
+    .ranking-controls { padding: 0 20px; gap: 10px; }
+    .ranking-arrow { width: 36px; height: 36px; }
     .ranking-card { flex-basis: 220px; }
     .ranking-body { padding: 16px 18px 20px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .ranking-track { animation: none; }
-    .ranking-ticker { overflow-x: auto; }
     .ranking-dup { display: none; }
   }
 </style>
@@ -862,7 +874,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://nanase-works.com/ogp.jpg">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","name":"Amazon・EC商品動画の撮影・編集サービス","serviceType":"商品動画撮影・編集","provider":{"@type":"Organization","name":"nanase works","url":"https://nanase-works.com/","areaServed":"JP"},"areaServed":"JP","description":"Amazon・楽天など各種ECサイト向けの商品動画を、撮影から編集まで個人で一貫制作。女性モデル出演料・構成提案料込み。","offers":[{"@type":"Offer","name":"Light（編集のみ）","price":"40000","priceCurrency":"JPY"},{"@type":"Offer","name":"Standard（撮影込み）","price":"60000","priceCurrency":"JPY"},{"@type":"Offer","name":"Premium（撮影＋縦型込み）","price":"90000","priceCurrency":"JPY"}]}
+{"@context":"https://schema.org","@type":"Service","name":"Amazon・EC商品動画の撮影・編集サービス","serviceType":"商品動画撮影・編集","provider":{"@type":"Organization","@id":"https://nanase-works.com/#organization","name":"nanase works","url":"https://nanase-works.com/","logo":"https://nanase-works.com/ogp.jpg","areaServed":"JP","sameAs":["https://www.youtube.com/channel/UCeH0TRCx_FCehRIMg-R8SWQ"]},"areaServed":"JP","description":"Amazon・楽天など各種ECサイト向けの商品動画を、撮影から編集まで個人で一貫制作。女性モデル出演料・構成提案料込み。","offers":[{"@type":"Offer","name":"Light（編集のみ）","price":"40000","priceCurrency":"JPY"},{"@type":"Offer","name":"Standard（撮影込み）","price":"60000","priceCurrency":"JPY"},{"@type":"Offer","name":"Premium（撮影＋縦型込み）","price":"90000","priceCurrency":"JPY"}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"料金内の修正は何回までですか？","acceptedAnswer":{"@type":"Answer","text":"プランにより異なります（Light：2回、Standard：3回、Premium：5回）。Amazon・楽天等の審査エラーに伴う修正は、プランに関わらず掲載まで無制限で対応いたします。"}},{"@type":"Question","name":"通常の納期はどのくらいですか？","acceptedAnswer":{"@type":"Answer","text":"商品の受け取りから初稿のご提示まで、目安として約3〜4週間ほどいただいております（混雑状況により変動します）。お急ぎの場合は「お急ぎ納品」オプション（約10日後に初稿）もご検討ください。"}},{"@type":"Question","name":"見積もりだけでもお願いできますか？","acceptedAnswer":{"@type":"Answer","text":"もちろんです。ご購入前の無料見積り相談を承っております。商品の情報やご希望の内容を教えていただければ、概算のお見積りをお伝えいたします。"}},{"@type":"Question","name":"完成した動画の著作権・使用期間に制限はありますか？","acceptedAnswer":{"@type":"Answer","text":"納品後の動画は、商用利用・二次利用ともに可能です。使用期間の制限もございません。Amazon・楽天への掲載はもちろん、SNS広告や自社サイトなど幅広くご活用いただけます。"}},{"@type":"Question","name":"オンラインミーティングはできますか？","acceptedAnswer":{"@type":"Answer","text":"オンラインミーティングは行っておりません。メールやChatworkにてやりとりさせていただいております。"}}]}
@@ -979,6 +991,11 @@
       <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="ZdJe6pxLU8c" aria-label="木材水分計の動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/ZdJe6pxLU8c/mqdefault.jpg" alt="木材水分計の商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ5位</span><p class="ranking-genre">木材水分計</p><p class="ranking-note">★4.4の高評価</p></div></div>
       <div class="ranking-card ranking-dup" aria-hidden="true"><div class="work-thumb ranking-thumb"><button class="yt-facade" data-id="i6gTi57yGCo" aria-label="シャンプーディスペンサーの動画を再生" tabindex="-1"><img src="https://img.youtube.com/vi/i6gTi57yGCo/mqdefault.jpg" alt="シャンプーディスペンサーの商品動画" loading="lazy"></button></div><div class="ranking-body"><span class="ranking-badge">カテゴリ上位</span><p class="ranking-genre">シャンプーディスペンサー</p><p class="ranking-note">月100点以上売れる人気商品</p></div></div>
     </div>
+  </div>
+  <div class="ranking-controls">
+    <button type="button" class="ranking-arrow" data-dir="-1" aria-label="前の実績へ">←</button>
+    <input type="range" class="ranking-range" min="0" max="1000" value="0" aria-label="ランキング実績の表示位置">
+    <button type="button" class="ranking-arrow" data-dir="1" aria-label="次の実績へ">→</button>
   </div>
   <p class="ranking-footnote">※ 2026年11月時点のAmazonランキング・レビュー数です。ランキングは日々変動します。</p>
 </section>
@@ -1487,6 +1504,7 @@
   <div class="rating-badge">
     <span>★★★★★</span> 5.0 / 5.0　（218件すべて星5）
   </div>
+  <a class="rating-link" href="https://coconala.com/services/2689880" target="_blank" rel="noopener">ココナラで評価を見る →</a>
 
   <div class="testimonial-slider">
     <div class="testimonial-track" id="testimonial-track">
@@ -2208,6 +2226,7 @@
 <footer>
   <p>© 2026 nanase works. All rights reserved.</p>
   <div>
+    <a href="/about/">nanase worksについて</a>
     <a href="#">プライバシーポリシー</a>
   </div>
 </footer>
@@ -2455,6 +2474,88 @@ document.addEventListener('click', function(e){
       }
     });
   }
+})();
+</script>
+<script>
+// ===== Amazonランキングのスライド（自動で流れ、ドラッグ・矢印・スライダーでも操作できる） =====
+(function () {
+  var box = document.querySelector('.ranking-ticker');
+  if (!box) return;
+  var track = box.querySelector('.ranking-track');
+  var range = document.querySelector('.ranking-range');
+  var arrows = document.querySelectorAll('.ranking-arrow');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pos = 0, last = 0, resumeAt = 0, hovering = false, dragging = false, moved = false;
+  var startX = 0, startPos = 0, smoothUntil = 0;
+
+  // 1周の長さ：複製を含めて流している場合は前半分。複製がない場合はスクロールできる幅
+  function cycle() { return reduce ? Math.max(1, box.scrollWidth - box.clientWidth) : track.scrollWidth / 2; }
+  function wrap(v) { var c = cycle(); if (reduce) return Math.min(Math.max(v, 0), c); v = v % c; return v < 0 ? v + c : v; }
+  function apply() { box.scrollLeft = pos; syncRange(); }
+  function syncRange() { range.value = Math.round(wrap(box.scrollLeft) / cycle() * 1000); }
+  function pauseFor(ms) { resumeAt = Date.now() + ms; }
+  function paused() { return reduce || hovering || dragging || Date.now() < resumeAt || Date.now() < smoothUntil || box.querySelector('iframe') || box.contains(document.activeElement); }
+
+  function tick(t) {
+    var dt = last ? Math.min(t - last, 50) : 0; last = t;
+    if (!paused()) { pos = wrap(pos + cycle() / 50000 * dt); apply(); }
+    requestAnimationFrame(tick);
+  }
+
+  // マウスを乗せている間は止める
+  box.addEventListener('mouseenter', function () { hovering = true; });
+  box.addEventListener('mouseleave', function () { hovering = false; });
+
+  // マウスでドラッグ（タッチはブラウザ標準のスワイプを使う）
+  box.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    dragging = true; moved = false; startX = e.clientX; startPos = box.scrollLeft;
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    if (!moved && Math.abs(dx) > 5) { moved = true; box.classList.add('is-dragging'); }
+    if (moved) { pos = wrap(startPos - dx); apply(); }
+  });
+  window.addEventListener('pointerup', function () {
+    if (!dragging) return;
+    dragging = false; box.classList.remove('is-dragging'); pauseFor(2500);
+  });
+  // ドラッグした直後のクリックで動画が再生されないようにする
+  box.addEventListener('click', function (e) {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+
+  // スワイプやトラックパッドで動かしたとき
+  box.addEventListener('scroll', function () {
+    if (Math.abs(box.scrollLeft - pos) > 1) { pos = box.scrollLeft; pauseFor(2500); }
+    if (!reduce && box.scrollLeft >= cycle() && Date.now() >= smoothUntil) { pos = wrap(box.scrollLeft); box.scrollLeft = pos; }
+    syncRange();
+  }, { passive: true });
+
+  // スライダー
+  range.addEventListener('input', function () {
+    pos = range.value / 1000 * cycle(); if (!reduce) pos = wrap(pos); box.scrollLeft = pos; pauseFor(3000);
+  });
+
+  // 矢印ボタン：カード1枚分ずつ動かす
+  Array.prototype.forEach.call(arrows, function (btn) {
+    btn.addEventListener('click', function () {
+      var card = track.querySelector('.ranking-card');
+      var step = (card ? card.getBoundingClientRect().width : 260) + 16;
+      var dir = Number(btn.getAttribute('data-dir'));
+      if (!reduce) {
+        var c = cycle();
+        if (dir < 0 && box.scrollLeft - step < 0) { box.scrollLeft += c; }
+        if (dir > 0 && box.scrollLeft + step > c) { box.scrollLeft -= c; }
+      }
+      smoothUntil = Date.now() + 600; pauseFor(3000);
+      box.scrollBy({ left: dir * step, behavior: 'smooth' });
+      setTimeout(function () { pos = box.scrollLeft; }, 650);
+    });
+  });
+
+  requestAnimationFrame(tick);
 })();
 </script>
 </body>
